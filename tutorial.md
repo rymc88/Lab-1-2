@@ -11,19 +11,17 @@ game.showLongText("", DialogLayout.Bottom)
 In this lab, you will learn about:
 
 - Adding multiple sprites to your project.
-- Sprite kinds & how to make your sprite different kinds.
+- Sprite kinds & how to make different sprite kinds.
 
-![Sprite Image](https://github.com/rymc88/lab-1-2--sprites-in-the-corner/blob/master/Tutorial-Images/sprite-kind-to-enemy.png?raw=true)
-
-You will create a project that will evlove in future labs.
+![Overview](https://github.com/rymc88/Lab-1-2/blob/master/img/overview-4.png?raw=true)
 
 ## Hero Sprite
 
 Let's create the first sprite of the project.
 
-**Step 1:** Add your first ``||variables(sprites):Sprite||`` to the project. 
-This will be your [**hero sprite**](# hero "The hero sprite represents the player.")
-, so give it an appropriate name. 
+**Step 1:** Add your first ``||sprites:sprite||`` to the project. 
+This will be your [***hero sprite***](# hero "The hero sprite represents the player.")
+so give it an appropriate name. 
 
 --------------------
 
@@ -33,20 +31,18 @@ You can always come back and improve it later.
 --------------------
 
 **Step 3:** Place your ``||variables(sprites): heroSprite||`` in one of the corners of the screen using the
-``||sprites: set mySprite position block||``.
-
---------------------
+``||sprites:set position||`` block.
 
 ```blocks
 let heroSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
     1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 1 1 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
     1 2 2 2 2 2 2 2 2 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Player)
@@ -57,8 +53,8 @@ heroSprite.setPosition(0, 0)
 
 Now, let's add a second sprite to your project.
 
-**Step 1:** Drag a new ``||variables(sprites): set mySprite to||`` block into your 
-project's. This will be your ``||variables(sprites): enemySprite||``, 
+**Step 1:** Drag a new ``||sprites:sprite||`` block into your 
+project's ``||loops:on start||`` block. This will be your ``||variables(sprites): enemySprite||``
 so give it an appropriate name.
 
 --------------------
@@ -67,24 +63,22 @@ so give it an appropriate name.
 
 --------------------
 
-**Step 3:** Set the Sprite Kind to ``||sprites: Enemy||``.
+**Step 3:** Set the Sprite Kind to ``||sprites: "Enemy"||``.
 
 --------------------
 
 **Step 4:** Place your ``||variables(sprites): enemySprite||`` in the corner opposite your hero sprite.
 
---------------------
-
 ```blocks
 let heroSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
     1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 1 1 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
     1 2 2 2 2 2 2 2 2 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Player)
@@ -92,19 +86,21 @@ heroSprite.setPosition(0, 0)
 // @highlight
 let enemySprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
+    1 5 5 5 5 5 5 5 5 1 
+    1 5 5 f f f f 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f f f 5 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f f f f 5 5 1 
+    1 5 5 5 5 5 5 5 5 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Enemy)
 // @highlight
 enemySprite.setPosition(0, 0)
 ```
+
+
 
 ## Food Sprite
 
@@ -120,56 +116,54 @@ so give it an appropriate name.
 
 --------------------
 
-**Step 3:** Set the Sprite Kind to ``||sprites: Food||``.
+**Step 3:** Set the Sprite Kind to ``||sprites: "Food"||``.
 
 --------------------
 
 **Step 4:** Place your ``||variables(sprites):foodSprite||`` in one of the remaining empty corners.
 
---------------------
-
 ```blocks
 let heroSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
     1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 1 1 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
     1 2 2 2 2 2 2 2 2 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Player)
-heroSprite.setPosition(0, 0)
+heroSprite.setPosition(40, 30)
 let enemySprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
+    1 5 5 5 5 5 5 5 5 1 
+    1 5 5 f f f f 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f f f 5 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f f f f 5 5 1 
+    1 5 5 5 5 5 5 5 5 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Enemy)
-enemySprite.setPosition(0, 0)
+enemySprite.setPosition(120, 90)
 // @highlight
 let foodSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
     1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
+    1 8 8 1 1 1 1 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 1 1 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
     1 8 8 8 8 8 8 8 8 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Food)
 // @highlight
-foodSprite.setPosition(0, 0)
+foodSprite.setPosition(40, 90)
 ```
 
 ## Projectile Sprite
@@ -185,51 +179,48 @@ so give it an appropriate name.
 
 --------------------
 
-**Step 3:** Set the Sprite Kind to ``||sprites: Projectile||``.
+**Step 3:** Set the Sprite Kind to ``||sprites: "Projectile"||``.
 
 --------------------
-
 
 **Step 4:** Place your ``||variables(sprites): projectileSprite||`` in the last empty corner.
-
---------------------
 
 ```blocks
 let heroSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
     1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 1 1 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
     1 2 2 2 2 2 2 2 2 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Player)
 heroSprite.setPosition(0, 0)
 let enemySprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
+    1 5 5 5 5 5 5 5 5 1 
+    1 5 5 f f f f 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f f f 5 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f f f f 5 5 1 
+    1 5 5 5 5 5 5 5 5 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Enemy)
 enemySprite.setPosition(0, 0)
 let foodSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
     1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
+    1 8 8 1 1 1 1 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 1 1 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
     1 8 8 8 8 8 8 8 8 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Food)
@@ -237,14 +228,14 @@ foodSprite.setPosition(0, 0)
 // @highlight
 let projectileSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
+    1 7 7 7 7 7 7 7 7 1 
+    1 7 7 f f f f 7 7 1 
+    1 7 7 f 7 7 f 7 7 1 
+    1 7 7 f f f f 7 7 1 
+    1 7 7 f 7 7 7 7 7 1 
+    1 7 7 f 7 7 7 7 7 1 
+    1 7 7 f 7 7 7 7 7 1 
+    1 7 7 7 7 7 7 7 7 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Projectile)
 // @highlight
@@ -256,63 +247,65 @@ projectileSprite.setPosition(0, 0)
 Now, we need a story! Your project contains four characters.
 Construct a story that involves these four sprite types.
 
-Include a [**synopsis**](# synopsis "A brief summary.") of the the story at the beginning of the game.
-Use either a ``||sprites: mySprite say ":)"|`` block or 
+Include a [***synopsis***](# synopsis "A brief summary.") of the the story at the beginning of the game.
+Use either a ``||sprites: say ":)"|`` block **and/or** 
 ``||game: show long text "___" ||`` block.
 
 ```blocks
 let heroSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
     1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
-    1 2 2 2 2 2 2 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 1 1 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
+    1 2 2 1 2 2 1 2 2 1 
     1 2 2 2 2 2 2 2 2 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Player)
 heroSprite.setPosition(0, 0)
 let enemySprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
-    1 7 7 7 7 7 7 7 7 1 
+    1 5 5 5 5 5 5 5 5 1 
+    1 5 5 f f f f 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f f f 5 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f 5 5 5 5 5 1 
+    1 5 5 f f f f 5 5 1 
+    1 5 5 5 5 5 5 5 5 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Enemy)
 enemySprite.setPosition(0, 0)
 let foodSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
     1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
-    1 8 8 8 8 8 8 8 8 1 
+    1 8 8 1 1 1 1 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 1 1 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
+    1 8 8 1 8 8 8 8 8 1 
     1 8 8 8 8 8 8 8 8 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Food)
 foodSprite.setPosition(0, 0)
 let projectileSprite = sprites.create(img`
     . 1 1 1 1 1 1 1 1 . 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
-    1 5 5 5 5 5 5 5 5 1 
+    1 7 7 7 7 7 7 7 7 1 
+    1 7 7 f f f f 7 7 1 
+    1 7 7 f 7 7 f 7 7 1 
+    1 7 7 f f f f 7 7 1 
+    1 7 7 f 7 7 7 7 7 1 
+    1 7 7 f 7 7 7 7 7 1 
+    1 7 7 f 7 7 7 7 7 1 
+    1 7 7 7 7 7 7 7 7 1 
     . 1 1 1 1 1 1 1 1 . 
     `, SpriteKind.Projectile)
 projectileSprite.setPosition(0, 0)
 // @highlight
-game.showLongText("Story Summary", DialogLayout.Bottom)
+heroSprite.sayText(":)")
+// @highlight
+game.showLongText("", DialogLayout.Bottom)
 ```
